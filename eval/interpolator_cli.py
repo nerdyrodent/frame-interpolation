@@ -65,6 +65,7 @@ Usage example:
 import functools
 import os
 from typing import List, Sequence
+import natsort
 
 from . import interpolator as interpolator_lib
 from . import util
@@ -145,7 +146,9 @@ class ProcessDirectory(beam.DoFn):
     input_frames_list = [
         tf.io.gfile.glob(f'{directory}/*.{ext}') for ext in _INPUT_EXT
     ]
-    input_frames = functools.reduce(lambda x, y: x + y, input_frames_list)
+    # Hax for using video frames (e.g. direct from pytti):
+    nerdy_input_frames_list = [ natsort.natsorted(input_frames_list[0], reverse=False) ]    
+    input_frames = functools.reduce(lambda x, y: x + y, nerdy_input_frames_list)
     logging.info('Generating in-between frames for %s.', directory)
     frames = list(
         util.interpolate_recursively_from_files(
