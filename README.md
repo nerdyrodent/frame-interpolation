@@ -1,10 +1,11 @@
 # FILM: Frame Interpolation for Large Scene Motion
+[Project](https://film-net.github.io/) | [Paper](https://arxiv.org/pdf/2202.04901.pdf) | [YouTube](https://www.youtube.com/watch?v=OAD-BieIjH4) | [Benchmark Scores](https://github.com/google-research/frame-interpolation) <br>
 
 ## Changes in this fork
 
 Just one basic change so far, and that is to allow for easy whole video interpolation.
 
-### [Project](https://film-net.github.io/) | [Paper](https://arxiv.org/pdf/2202.04901.pdf) | [YouTube](https://www.youtube.com/watch?v=OAD-BieIjH4) | [Benchmark Scores](https://github.com/google-research/frame-interpolation) <br>
+### About
 
 Tensorflow 2 implementation of our high quality frame interpolation neural network. We present a unified single-network approach that doesn't use additional pre-trained networks, like optical flow or depth, and yet achieve state-of-the-art results. We use a multi-scale feature extractor that shares the same convolution weights across the scales. Our model is trainable from frame triplets alone. <br>
 
